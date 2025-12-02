@@ -14,6 +14,8 @@ type
     Edit2: TEdit;
     Label1: TLabel;
     Label2: TLabel;
+    Edit3: TEdit;
+    Label3: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
   private
@@ -31,7 +33,7 @@ implementation
 
      procedure TForm1.Button1Click(Sender: TObject);
 var
-  r, volume: Double;
+  r, area, volume: Double;
 begin
 
          if not TryStrToFloat(Edit1.Text, r) then
@@ -40,7 +42,7 @@ begin
     Edit1.Text:=' ';
     Exit;
     end;
-    
+
      if r < 0 then
      begin
      ShowMessage('Ошибка: радиус не может быть отрицательным.');
@@ -49,11 +51,15 @@ begin
 
 
   // Объём шара:
-  volume := (4.0 / 3.0) * Pi * Math.Power ((StrToFloat (Edit1.Text)), 3);
+  volume := (4.0 / 3.0) * Pi * Math.Power (r, 3);
+
+  // Площадь поверхности шара:
+  area := (4.0 * Pi * Math.Power (r, 2));
 
   // форматирование
   Edit2.Text := Format('Объем: %s ', [FormatFloat('0.######', volume)]);
-end;
+
+  end;
 
 procedure TForm1.Button2Click(Sender: TObject);
 begin
