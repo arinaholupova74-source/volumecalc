@@ -52,7 +52,7 @@ begin
   volume := (4.0 / 3.0) * Pi * Math.Power ((StrToFloat (Edit1.Text)), 3);
 
   // форматирование
-  Edit2.Text := Format(' %s ', [FormatFloat('0.######', volume)]);
+  Edit2.Text := Format('Объем: %s ', [FormatFloat('0.######', volume)]);
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
